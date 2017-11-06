@@ -1,10 +1,8 @@
-
-
-(function getAndPrintHTMLChunks () {
+(function getAndPrintHTML () {
 
   var requestOptions = {
     host: 'sytantris.github.io',
-    path: '/http-examples/step1.html'
+    path: '/http-examples/step2.html'
   };
 
   var https = require('https');
@@ -17,15 +15,14 @@
     var rawData = '';
 
     res.on('data', function(chunk){
-      console.log(chunk + '\n');
+      rawData += chunk;
+    });
+
+    res.on('end', function(){
+      console.log(rawData);
     });
 
   });
 
 })();
-
-
-
-
-
 
